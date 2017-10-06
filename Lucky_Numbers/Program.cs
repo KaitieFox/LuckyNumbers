@@ -11,23 +11,27 @@ namespace Lucky_Numbers
         static void Main(string[] args)
         {
             string userConsent = "";
+
+            Console.WriteLine("It's the LUCKY NUMBERS GAME!!");
+            Console.WriteLine("The place where you set the parameters, guess six numbers in the range,");
+            Console.WriteLine("and I'll spin the wheels of fate to see if your numbers come up!");
             do
             {
                 //Part one
-                Console.WriteLine("Please enter lowest number.");
+                Console.WriteLine("Please enter lowest number in your range.");
                 int lowest = int.Parse(Console.ReadLine());
 
-                Console.WriteLine("And a higher number.");
+                Console.WriteLine("And the highest number.");
                 int highest = int.Parse(Console.ReadLine());
 
                 //prevents inconsistensies
                 while (lowest >= highest)
                 {
-                    Console.WriteLine("Enter a number greater than your first number");
+                    Console.WriteLine("Enter a number greater than your first number.");
                     highest = int.Parse(Console.ReadLine());
                 }
 
-                Console.WriteLine("Excellent! Now, pick 6 numbers between " + lowest + " and " + highest + ".");
+                Console.WriteLine("Excellent! Now, pick 6 numbers between " + lowest + " and " + highest + ". Be sure to press ENTER after each number!");
 
                 //the user array
                 int[] userLuckyNumbers = new int[6];
@@ -37,7 +41,7 @@ namespace Lucky_Numbers
                     int userGuess = int.Parse(Console.ReadLine());
                     while (userGuess > highest || userGuess < lowest)
                     {
-                        Console.WriteLine("Please enter a valid number");
+                        Console.WriteLine("Please enter a valid number.");
                         userGuess = int.Parse(Console.ReadLine());
                     }
                     userLuckyNumbers[i] = userGuess;
@@ -103,11 +107,22 @@ namespace Lucky_Numbers
 
                 Console.WriteLine("You won $" + userMoney + "!");
 
+                System.Threading.Thread.Sleep(500);
+                Console.WriteLine("\a");
+
                 Console.WriteLine("Want to play again?");
                 userConsent = Console.ReadLine().Trim().ToLower();
+                if (userConsent != "yes")
+                {
+                    Console.WriteLine("Thanks for playing!");
+                }
+                else
+                {
+                    Console.WriteLine("");
+                }
 
             }
-            while (userConsent == "yes");
+            while (userConsent == "yes" || userConsent == "y");
 
 
 
