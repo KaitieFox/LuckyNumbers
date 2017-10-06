@@ -32,11 +32,6 @@ namespace Lucky_Numbers
                 //the user array
                 int[] userLuckyNumbers = new int[6];
 
-                //while (int.Parse(Console.ReadLine()) > highest || int.Parse(Console.ReadLine()) < lowest) 
-                //{
-                //    Console.WriteLine("Please enter a valid number");
-                //}          
-
                 for (int i = 0; i < 6; i++)
                 {
                     int userGuess = int.Parse(Console.ReadLine());
@@ -66,7 +61,15 @@ namespace Lucky_Numbers
                 for (int i = 0; i < 6; i++)
                 {
                     int randomNumber = rando.Next(lowest, highest) + 1;
+
+                    while (randoms.Contains(randomNumber))
+                    {
+
+                        randomNumber = rando.Next(lowest, highest) + 1;
+
+                    }
                     randoms[i] = randomNumber;
+
                 }
 
                 Console.WriteLine("\nI chose ");
