@@ -36,7 +36,7 @@ namespace Lucky_Numbers
                 //the user array
                 int[] userLuckyNumbers = new int[6];
 
-                for (int i = 0; i < 6; i++)
+                for (int i = 0; i < userLuckyNumbers.Length; i++)
                 {
                     int userGuess = int.Parse(Console.ReadLine());
                     while (userGuess > highest || userGuess < lowest)
@@ -62,7 +62,7 @@ namespace Lucky_Numbers
                 int[] randoms = new int[6];
 
                 Random rando = new Random();
-                for (int i = 0; i < 6; i++)
+                for (int i = 0; i < randoms.Length; i++)
                 {
                     int randomNumber = rando.Next(lowest, highest) + 1;
 
@@ -89,7 +89,7 @@ namespace Lucky_Numbers
                 int userWin = 0;
                 decimal userMoney;
 
-                for (int i = 0; i < 6; i++)
+                for (int i = 0; i < userLuckyNumbers.Length; i++)
                 {
                     if (randoms.Contains(userLuckyNumbers[i]))
                     {
