@@ -89,20 +89,22 @@ namespace Lucky_Numbers
                 int userWin = 0;
                 decimal userMoney;
 
-                for (int i = 0; i < userLuckyNumbers.Length; i++)
+                
+
+                foreach (int i in userLuckyNumbers)
                 {
-                    if (randoms.Contains(userLuckyNumbers[i]))
+                    
+                    if (randoms.Contains(i))  //okay but this doesn't account for user input various numbers, winning much.
                     {
                         userWin++;
+                        int change = Array.IndexOf(randoms, i);
+                        randoms.SetValue(change + highest, change); //this does account for it.
                     }
-                    else
-                    {
-                        userWin = userWin + 0;
-                    }
+                    
                 }
 
                 Console.WriteLine("You won " + userWin + " times!");
-                userMoney = Decimal.Round((jackpot / 6 * userWin) * 1.00m, 2, MidpointRounding.AwayFromZero);
+                userMoney = Decimal.Round((jackpot / 6 * userWin), 2, MidpointRounding.AwayFromZero);
 
 
                 Console.WriteLine("You won $" + userMoney + "!");
